@@ -1,0 +1,4 @@
+[[rules]]
+id = "training-secret"
+description = "Detect simulated training secrets"
+regex = '''TRAINING_SECRET=[A-Za-z0-9]{16,}'''
