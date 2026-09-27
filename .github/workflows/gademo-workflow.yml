@@ -18,6 +18,12 @@ jobs:
       - name: Scan repository for secrets with Gitleaks
         uses: gitleaks/gitleaks-action@v2
 
+      - name: Install Semgrep
+        run: python3 -m pip install semgrep
+
+      - name: Run Semgrep SAST scan
+        run: semgrep scan --config=auto .
+
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
