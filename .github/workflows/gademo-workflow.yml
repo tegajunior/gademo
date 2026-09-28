@@ -48,6 +48,14 @@ jobs:
       - name: Build Docker image
         run: docker build -t ${{ vars.DOCKER_HUB_USERNAME }}/gademo:v${{ github.run_number }} .
 
+      - name: Scan Docker image with Trivy
+        uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8 # v0.36.0
+        with:
+          image-ref: '${{ vars.DOCKER_HUB_USERNAME }}/gademo:v${{ github.run_number }}'
+          scanners: 'vuln'
+          severity: 'HIGH,CRITICAL'
+          exit-code: '1'
+
       - name: Log in to Docker Hub
         uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
