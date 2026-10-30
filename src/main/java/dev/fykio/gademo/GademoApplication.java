@@ -21,7 +21,7 @@ public class GademoApplication {
 	@GetMapping("/")
 	public ResponseEntity<String> home() {
 		log.info("Home hit!");
-		return ResponseEntity.ok().body("<h3>Welcome to Continuous Integration demo using GitHub, GitHub Actions, & Docker Hub</h3>");
+		return ResponseEntity.ok().body("<h3>Welcome to Continuous Integration demo using GitHub, GitHub Actions, & Docker Hub And Hello World!</h3>");
 	}
 
 	@GetMapping("/ping")
